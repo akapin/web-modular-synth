@@ -10,7 +10,7 @@ export default fabric.util.createClass(fabric.Group, {
       left: options.left,
       top: options.top,
       width: 150,
-      height: 20,
+      height: 25,
       hasBorders: false,
       hasControls: false,
       selectable: false,
@@ -29,12 +29,12 @@ export default fabric.util.createClass(fabric.Group, {
       fill: '#2f2f2f',
       width: this.width,
       height: this.height,
-      stroke: 'white',
+      stroke: 'lightblue',
       strokeWidth: 1,
     });
 
     const TEXT_LEFT_OFFSET = 15;
-    const TEXT_TOP_OFFSET = 2;
+    const TEXT_TOP_OFFSET = 4;
 
     const text = new fabric.Text(this.text, {
       left: this.left + TEXT_LEFT_OFFSET,

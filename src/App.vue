@@ -49,6 +49,14 @@ export default {
     },
   },
 
+  watch: {
+    selectedDevice(newValue) {
+      if (!newValue) {
+        this.setFullscreenCanvas();
+      }
+    }
+  },
+
   methods: {
     createCanvas() {
       this.canvas = new fabric.Canvas('c', {
@@ -122,7 +130,12 @@ export default {
           return;
         }
 
+        const LEFT_MOUSE_BUTTON_CODE = 1;
         const RIGHT_MOUSE_BUTTON_CODE = 3;
+
+        if (event_.button === LEFT_MOUSE_BUTTON_CODE && !event_.target) {
+          this.resetSelectedDevice();
+        }
 
         if (event_.button === RIGHT_MOUSE_BUTTON_CODE && !event_.target) {
           this.showContextMenu(event_);
@@ -143,6 +156,10 @@ export default {
       this.contextMenu = null;
     },
 
+    resetSelectedDevice() {
+      this.selectedDevice = null;
+    },
+
     start() {
       Tone.start();
       this.createCanvas();
@@ -156,6 +173,11 @@ export default {
       return typeof this.selectedDevice.component[property] === 'Signal'
           ? this.selectedDevice.component[property]
           : this.selectedDevice.component[property].value;
+    },
+
+    setFullscreenCanvas() {
+      this.canvas.setWidth(window.innerWidth);
+      this.canvas.setHeight(window.innerHeight);
     }
   },
 };
