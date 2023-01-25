@@ -150,6 +150,13 @@ export default {
       this.addListeners();
       this.isStarted = true;
     },
+
+    getSelectedDevicePropName(property) {
+      // eslint-disable-next-line valid-typeof
+      return typeof this.selectedDevice.component[property] === 'Signal'
+          ? this.selectedDevice.component[property]
+          : this.selectedDevice.component[property].value;
+    }
   },
 };
 </script>
@@ -172,18 +179,10 @@ export default {
         <span>{{ selectedDeviceIns }}</span>
       </div>
       <template v-if="selectedDevice.component">
-        <template v-for="prop of Object.keys(selectedDeviceProps)">
-          <div :key="prop">
-            <span class="property-name">{{ prop }}: </span>
-            <span>
-              {{
-                typeof selectedDevice.component[prop] === 'Signal'
-                  ? selectedDevice.component[prop]
-                  : selectedDevice.component[prop].value
-              }}
-            </span>
-          </div>
-        </template>
+        <div v-for="prop of Object.keys(selectedDeviceProps)" :key="prop">
+          <span class="property-name">{{ prop }}: </span>
+          <span>{{ getSelectedDevicePropName(prop) }}</span>
+        </div>
       </template>
     </div>
   </div>
