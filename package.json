@@ -1,0 +1,27 @@
+{
+  "name": "web-modular-synth",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "fabric": "5.3.0",
+    "tone": "14.7.77",
+    "vue": "3.2.45"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@vitejs/plugin-vue": "4.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-sonarjs": "^0.18.0",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "eslint-plugin-vue": "^9.9.0",
+    "prettier": "2.8.3",
+    "vite": "4.0.4"
+  }
+}
